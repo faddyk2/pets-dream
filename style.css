@@ -365,6 +365,7 @@ body {
     padding: 80px 0;
     width: 100%;
     min-height: 80vh;
+    height: fit-content;
 }
 #about-side-dog{
     position: absolute;
@@ -561,6 +562,7 @@ body {
     padding: 15px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 #paws-right{
     vertical-align: top;
