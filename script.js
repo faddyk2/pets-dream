@@ -15,18 +15,42 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
-// Hide/show navbar on scroll
+// Hide/show navbar on scroll and update progress bar
 let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
+    // Navbar hide/show logic
     if (scrollTop > lastScrollTop && scrollTop > 100) {
         navbar.classList.add('hidden');
     } else {
         navbar.classList.remove('hidden');
     }
     lastScrollTop = scrollTop;
+    
+    // Update scroll progress
+    updateScrollProgress();
+    
+    // Show/hide back to top button
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        if (scrollTop > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
 });
+
+// Scroll progress indicator
+function updateScrollProgress() {
+    const scrollProgress = document.querySelector('.scroll-progress');
+    if (scrollProgress) {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.pageYOffset / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+    }
+}
 
 // Video Slider functionality
 class VideoSlider {
@@ -504,18 +528,160 @@ document.addEventListener('DOMContentLoaded', () => {
     new SupplementsSlider();
 });
 
-// Smooth scrolling for navigation links
+// Enhanced smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // Get navbar height for offset
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+            
+            // Calculate the position with offset
+            const targetPosition = target.offsetTop - navbarHeight - 20; // Extra 20px margin
+            
+            // Smooth scroll to target
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
+            
+            // Close mobile menu if open
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         }
     });
+});
+
+// Add active navigation link highlighting
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section, .section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    const navbar = document.querySelector('.navbar');
+    const navbarHeight = navbar ? navbar.offsetHeight : 80;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - navbarHeight - 50;
+        const sectionHeight = section.offsetHeight;
+        
+        if (window.pageYOffset >= sectionTop && 
+            window.pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Update active nav link on scroll
+window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('load', updateActiveNavLink);
+
+// Scroll animations for sections
+function initScrollAnimations() {
+    const sections = document.querySelectorAll('.section');
+    const cards = document.querySelectorAll('.card, .supplement-card, .faq-item');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe sections
+    sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
+    });
+    
+    // Observe cards with stagger effect
+    cards.forEach((card, index) => {
+        card.classList.add('fade-in-card');
+        card.style.animationDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+}
+
+// Initialize scroll animations
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+// Enhanced button navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Start Here button - navigate to about section
+    const heroButton = document.querySelector('.hero-button');
+    if (heroButton) {
+        heroButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            smoothScrollToSection('#about');
+        });
+    }
+    
+    // View Services button - navigate to services section
+    const viewServicesBtn = document.querySelector('.view-services-btn');
+    if (viewServicesBtn) {
+        viewServicesBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            smoothScrollToSection('#services');
+        });
+    }
+    
+    // Book Now button - navigate to FAQ section (or contact)
+    const bookNowBtn = document.querySelector('.signature-button');
+    if (bookNowBtn) {
+        bookNowBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            smoothScrollToSection('#faq');
+        });
+    }
+});
+
+// Helper function for smooth scrolling
+function smoothScrollToSection(targetId) {
+    const target = document.querySelector(targetId);
+    if (target) {
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 80;
+        const targetPosition = target.offsetTop - navbarHeight - 20;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Back to top button functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
 
 // Float animation for paw decorations
