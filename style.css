@@ -1127,12 +1127,12 @@ body {
 
 .signature-service{
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #8de9f3);
-    height: clamp(300px, 900px, 900px);
+    height: clamp(300px, 750px, 750px);
     align-items: center;
     text-align: center;
     justify-content: center;
     display: flex;
-    padding: 2rem 0;
+    padding: 4rem 0;
 }
 .signature-service img {
     width: clamp(600px, 50vw, 50vw);
@@ -1154,7 +1154,7 @@ body {
     position: absolute;
     align-items: center;
     justify-content: flex-start;
-    top: clamp(2vw,7vw, 25%);
+    top: clamp(2vw,08vw, 10vw);
     left: 50%;
     transform: translateX(-50%);
     font-size: 1vw;
