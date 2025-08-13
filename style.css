@@ -70,6 +70,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nav-logo {
@@ -110,6 +111,10 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
     gap: 2rem;
 }
 

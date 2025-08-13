@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bookNowBtn) {
         bookNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            smoothScrollToSection('#faq');
+            window.location.href = '/appointment.html';
         });
     }
 });

@@ -13,6 +13,25 @@
         display: block;
         margin: 0 auto;
     }
+    .appointment-button {
+        background-color: #43BDCA;
+        align-items: center;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        justify-content: center;
+        align-self: center;
+        border-radius: 20px;
+        cursor: pointer;
+        max-width: 200px;
+        transition: background-color 0.3s ease;
+        /*make it align center*/
+        margin: 0 auto;
+    }
+
+    .appointment-button:hover {
+        background-color: #36a6b5;
+    }
 </style>
 <body>
     <!-- Scroll Progress Indicator -->
@@ -33,6 +52,7 @@
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="#supplements" class="nav-link">Supplements</a></li>
                 <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                <button class="appointment-button">Book Appointment</button>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
