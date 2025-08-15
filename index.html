@@ -52,7 +52,7 @@
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="#supplements" class="nav-link">Supplements</a></li>
                 <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
-                <button class="appointment-button">Book Appointment</button>
+                <button class="appointment-button" onclick="window.location.href='/appointment.html'">Book Appointment</button>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -317,109 +317,69 @@
             <li>Deep conditioning for<br>healthier hair and skin</li>
         </ul>
     </div>
-    <button class="signature-button">Book Now</button>
+    <button class="signature-button" >Book Now</button>
     
     <img class="signature-dog-cat" src="images/dog-cat-signature.png" alt="dog and cat">
 </div>
 
     <div class="section shadow supplements" id="supplements">
         <h1>Pet Supplements</h1>
-        <div class="supplements-container">
-            <div class="supplements-navigation">
-                <button class="supplements-nav-btn supplements-prev" id="supplements-prev">
-                    <img src="images/left-navigation.png" alt="Previous">
-                </button>
-                
-                <div class="supplements-slider">
-                    <div class="supplements-track" id="supplements-track">
-                        
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/blood powder supp.png" alt="Blood Powder Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Blood Powder</h3>
-                            <p class="supplement-description">Boosts muscle mass and coat shine. Great for active dogs, young animals, and pregnant/nursing females.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/vitamen supp.png" alt="Vitamin C Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Vitamin C</h3>
-                            <p class="supplement-description">Supports a strong immune system and helps collagen formation—essential for healthy cartilage and bone.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/salmon oil supp.png" alt="Salmon Oil Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Salmon Oil</h3>
-                            <p class="supplement-description">Rich in omega-3s, supports a healthy heart, joints, and gives a shinier, thicker coat.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/omega 3 supp.png" alt="Joint Care Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Omega-3</h3>
-                            <p class="supplement-description">Supports heart, brain, eyesight, joints, and prevents dry skin. Vital for cellular health.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/rehydration supp.png" alt="Rehyderation Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Rehyderation</h3>
-                            <p class="supplement-description">Fast-absorbing electrolytes ideal during heat, activity, or digestive issues. Aids in recovery and daily hydration.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/multi.png" alt="Multiflex Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Multiflex</h3>
-                            <p class="supplement-description">Nutrient-rich formula to maintain healthy and functional joints throughout an active life.</p>
-                        </div>
-
-                        <div class="supplement-card">
-                            <div class="supplement-image">
-                                <div class="supplement-img-placeholder">
-                                    <img src="images/supplements/kelp supp.png" alt="Multiflex Supplement">
-                                </div>
-                            </div>
-                            <h3 class="supplement-title">Kelp</h3>
-                            <p class="supplement-description">Contains antioxidants (Vitamin A & E), minerals, and amino acids—improves digestion, skin, and coat health.</p>
-                        </div>
-
-                    </div>
+        <div class="carousel" mask>
+            <article>
+                <img src="images/supplements/blood powder supp.png" alt="Blood Powder Supplement">
+                <h2>Blood Powder</h2>
+                <div>
+                    <p>Boosts muscle mass and coat shine. Great for active dogs, young animals, and pregnant/nursing females.</p>
                 </div>
-                
-                <button class="supplements-nav-btn supplements-next" id="supplements-next">
-                    <img src="images/right-navigation.png" alt="Next">
-                </button>
-            </div>
-            
-            <div class="supplements-dots" id="supplements-dots">
-                <span class="supplement-dot active" data-slide="0"></span>
-                <span class="supplement-dot" data-slide="1"></span>
-                <span class="supplement-dot" data-slide="2"></span>
-                <span class="supplement-dot" data-slide="3"></span>
-                <span class="supplement-dot" data-slide="4"></span>
-                <span class="supplement-dot" data-slide="5"></span>
-                <span class="supplement-dot" data-slide="6"></span>
-            </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/vitamen supp.png" alt="Vitamin C Supplement">
+                <h2>Vitamin C</h2>
+                <div>
+                    <p>Supports a strong immune system and helps collagen formation—essential for healthy cartilage and bone.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/salmon oil supp.png" alt="Salmon Oil Supplement">
+                <h2>Salmon Oil</h2>
+                <div>
+                    <p>Rich in omega-3s, supports a healthy heart, joints, and gives a shinier, thicker coat.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/omega 3 supp.png" alt="Omega-3 Supplement">
+                <h2>Omega-3</h2>
+                <div>
+                    <p>Supports heart, brain, eyesight, joints, and prevents dry skin. Vital for cellular health.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/rehydration supp.png" alt="Rehydration Supplement">
+                <h2>Rehydration</h2>
+                <div>
+                    <p>Fast-absorbing electrolytes ideal during heat, activity, or digestive issues. Aids in recovery and daily hydration.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/multi.png" alt="Multiflex Supplement">
+                <h2>Multiflex</h2>
+                <div>
+                    <p>Nutrient-rich formula to maintain healthy and functional joints throughout an active life.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/supplements/kelp supp.png" alt="Kelp Supplement">
+                <h2>Kelp</h2>
+                <div>
+                    <p>Contains antioxidants (Vitamin A & E), minerals, and amino acids—improves digestion, skin, and coat health.</p>
+                </div>
+            </article>
         </div>
     </div>
     <div class="section shadow team">
