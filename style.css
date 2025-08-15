@@ -382,7 +382,7 @@ body {
 /* Tablet view */
 @media (max-width: 1024px) {
     .blue {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 0;
         align-items: center;
         align-content: center;
@@ -399,20 +399,23 @@ body {
     #blue-section-left-image img,
     #blue-section-right-image img {
         height: auto;
-        max-height: 400px;
-        max-width: 400px;
+        height: 100%;
+        width: 100%;
     }
     #blue-section-right-image{
-        grid-column: span 2;
         align-items: center;
         justify-content: center;
         justify-items: center;
-        text-align: center;
+        text-align: right;
+        object-fit: fill;
+        margin-bottom: -15vw;
         height: fit-content;
     }
     #blue-section-left-image{
         align-items: baseline;
         justify-content: baseline;
+         margin-bottom: -20vw;
+         height: -10vw;
 
     }
     #blue-section-text {
@@ -763,7 +766,7 @@ body {
     flex-direction: column;
     background: #80CFD7;
     border: 1px solid #eee;
-    border-radius: 50px;
+    border-radius: 8px;
     padding: 30px 20px;
     text-align: center;
     min-width: 400px;
@@ -815,7 +818,11 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-
+@media (max-width: 1200px){
+    .gridcontainer{
+        grid-template-columns: 1fr 1fr;
+    }
+}
 @media (max-width: 768px) {
     .gridcontainer{
         grid-template-columns: 1fr;
@@ -857,17 +864,25 @@ body {
 }
 
 @media (max-width: 480px) {
+
     .services {
         padding: 2rem 0.5rem;
     }
     .gridcontainer {
         gap: 30px;
         padding: 0 0.5rem;
+        grid-template-columns: 1fr;
     }
     .card {
-        max-width: 300px;
+        max-width: 400px;
         min-height: 400px;
         padding: 20px 12px;
+    }
+    .card img{
+        height: 100%;
+    }
+    .cardCont{
+        min-width: 65vw;
     }
     .services-title {
         font-size: 1.8rem;
@@ -891,6 +906,7 @@ body {
         margin-top: 15px;
     }
 }
+
 
 
 
@@ -1211,7 +1227,7 @@ body {
     }
 }
 .signature-service {
-    background: linear-gradient(135deg, #e0f7ff 0%, #b3ecf2 50%, #8de9f3 100%);
+    background: linear-gradient(135deg, #eef9fd 0%, #dde9eb 50%, #56d4e2 100%);
     min-height: 100vh;
     position: relative;
     display: flex;
@@ -1291,7 +1307,7 @@ body {
 
 .signature-button {
     position: absolute;
-    background: linear-gradient(to bottom, #43BDCA 0%, #23727a 100%);
+    background: linear-gradient(to bottom, #3e6d72, #0f575f);
     font-family: 'cooper-black', sans-serif;
     border: none;
     border-radius: 30px;
@@ -1325,8 +1341,13 @@ body {
 
 /* Tablet Styles */
 @media screen and (max-width: 1024px) {
+    .sig-bg{
+        display: none;
+    }
     .signature-service {
         padding: 3rem 1.5rem;
+        background: linear-gradient(135deg, #15afe2 0%, #43BDCA 50%, #138592 100%);
+        height: fit-content;
     }
     
     .sig-bg {
@@ -1336,17 +1357,28 @@ body {
     
     .signature-content {
         margin-right: 10%;
+        font-size: 5vw;
+    }
+    .signature-content h1{
+        font-size: clamp(1.5rem, 6vw, 7vw);
+    }
+    .signature-sub{
+        font-size: clamp(1.3rem, 3vw, 2rem);
     }
     
-    .signature-dog-cat {
-        left: 5%;
-        width: clamp(250px, 30vw, 350px);
+       .signature-dog-cat {
+        position:absolute;
+        left: 0%;
+        top: 50%;
+        scale: calc(0.85 + 0.55 * (100vw / 480));
+        width: clamp(150px, 70vw, 250px);
     }
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
     .signature-service {
+        background: linear-gradient(135deg, #15afe2 0%, #43BDCA 50%, #138592 100%);
         flex-direction: column;
         min-height: auto;
         padding: 2rem 1rem;
@@ -1387,16 +1419,19 @@ body {
     }
     
     .signature-button {
+        position: relative;
         background: white;
         color: #43BDCA;
         font-size: clamp(1rem, 4vw, 1.2rem);
-        margin-top: 1.5rem;
+        margin-top: 1.5vw;
     }
     
     .signature-dog-cat {
-        position: static;
-        width: clamp(200px, 60vw, 300px);
-        margin-top: 1rem;
+        position:absolute;
+        left: -10%;
+        top: 50%;
+        scale: calc(0.75 + 0.25 * (100vw / 480));
+        width: clamp(150px, 70vw, 250px);
     }
 }
 
@@ -1419,11 +1454,18 @@ body {
     }
     
     .signature-button {
+        position: relative;
         font-size: clamp(0.9rem, 4.5vw, 1.1rem);
         padding: 0.8rem 2rem;
+        left: 0;
+        transform: translate(0);
     }
     
     .signature-dog-cat {
+        position:absolute;
+        left: -10%;
+        top: 50%;
+        transform: scale(0.5) translateX(-20%);
         width: clamp(150px, 70vw, 250px);
     }
 }

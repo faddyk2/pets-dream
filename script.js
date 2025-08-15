@@ -311,14 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Book Now button - navigate to FAQ section (or contact)
-    const bookNowBtn = document.querySelector('.signature-button');
-    if (bookNowBtn) {
-        bookNowBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            smoothScrollToSection('#faq');
-        });
-    }
 });
 
 // Helper function for smooth scrolling
