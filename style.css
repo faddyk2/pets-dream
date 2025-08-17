@@ -578,6 +578,93 @@ body {
 .shadow:has(.about-container){
         height: fit-content;
     }
+    @media screen and (max-width: 1024px) {
+         .about-container br{
+        display: none;
+    }
+    .about-title{
+        font-size: 8vw;
+        line-height: 1.4;
+        margin: 0;
+    }
+    .about-container{
+        padding: 1rem;
+    }
+    .about-text{
+        margin: 0;
+        font-size: 6vw;
+    }
+    .tagline{
+        background-color: #43BDCA;
+        color: white;
+        padding: 5vw;
+        border-radius: 40px;
+    }
+    .about-left,.about-right{
+        margin: 0;
+        padding: 0;
+    }
+    .about-text br{
+        display: none;
+    }
+    .about-content p{
+        margin: 0;
+        padding: 0.5rem 0;
+        font-size: 3.5vw;
+        font-weight: 600;
+    }
+    .specialty-title {
+        font-family: 'cooper-black', sans-serif;
+        font-size: 7vw;
+        color: #43BDCA;
+        margin-bottom: 10px;
+    }
+    .about-content{
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        margin-top: 0.4rem;
+        padding: 0 1rem;
+    }
+    #paws-left{
+        position: absolute;
+        left: clamp(-2%, -15vw, -10%);
+        top: 25%;
+        scale: 0.9;
+    }
+    #paws-right{
+        position: absolute;
+        right: clamp(-2%, -15vw, -10%);
+        top: 25%;
+        scale: 0.9;
+    }
+    #about-dog-icon{
+        position: absolute;
+        right: 30%;
+        bottom: calc(7% + 5vw);
+        scale: 1;
+    }
+    #about-side-dog{
+        position: absolute;
+        left: 0;
+        top: calc(75% + 2vw);
+        scale: 0.5;
+    }
+
+    .shadow:has(.about-container){
+        height: fit-content;
+    }
+    .view-services-btn{
+        margin-top: calc(1px + 18vw);
+        padding: 1rem 2rem;
+        background-color: #43BDCA;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    }
 
 @media screen and (max-width: 768px) {
     .about-container br{
@@ -1228,12 +1315,13 @@ body {
 }
 .signature-service {
     background: linear-gradient(135deg, #eef9fd 0%, #dde9eb 50%, #56d4e2 100%);
-    min-height: 100vh;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 4rem 2rem;
     overflow: hidden;
+    gap:6vw;
 }
 
 .sig-bg {
@@ -1306,7 +1394,7 @@ body {
 }
 
 .signature-button {
-    position: absolute;
+    position: relative;
     background: linear-gradient(to bottom, #3e6d72, #0f575f);
     font-family: 'cooper-black', sans-serif;
     border: none;
@@ -1318,9 +1406,11 @@ body {
     padding: 1rem 2.5rem;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    bottom: 10%;
+    bottom: -5%;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
+    margin-bottom: 4vw;
 }
 
 .signature-button:hover {
@@ -1347,6 +1437,7 @@ body {
     .signature-service {
         padding: 3rem 1.5rem;
         background: linear-gradient(135deg, #15afe2 0%, #43BDCA 50%, #138592 100%);
+        min-height: fit-content;
         height: fit-content;
     }
     
@@ -1357,10 +1448,10 @@ body {
     
     .signature-content {
         margin-right: 10%;
-        font-size: 5vw;
+        font-size: 8vw;
     }
     .signature-content h1{
-        font-size: clamp(1.5rem, 6vw, 7vw);
+        font-size: clamp(1.5rem, 9vw, 9vw);
     }
     .signature-sub{
         font-size: clamp(1.3rem, 3vw, 2rem);
@@ -1368,7 +1459,8 @@ body {
     
        .signature-dog-cat {
         position:absolute;
-        left: 0%;
+        left: auto;
+        right: 0%;
         top: 50%;
         scale: calc(0.85 + 0.55 * (100vw / 480));
         width: clamp(150px, 70vw, 250px);
@@ -1676,7 +1768,7 @@ body {
     .carousel {
         --carousel-width: 98vw;
         --carousel-item-width: 220px;
-        --carousel-item-height: 350px;
+        --carousel-item-height: 450px;
         --carousel-item-gap: 1rem;
     }
     
